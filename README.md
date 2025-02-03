@@ -37,3 +37,7 @@
 ### Loading page
 
 > /app/loading.tsx
+
+### Responsive Sheet Menu
+
+> npx shadcn@latest add sheet
