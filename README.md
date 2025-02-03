@@ -23,3 +23,13 @@
 ### Lucide React
 
 > npm i lucide-react
+
+### Theme color toggle - NEXT THEMES
+
+> npm i next-themes
+
+> npx shadcn@latest add dropdown-menu
+
+# Local File 'use client'
+
+> /app/components/shared/header/mode-toggle.tsx
