@@ -33,3 +33,7 @@
 # Local File 'use client'
 
 > /app/components/shared/header/mode-toggle.tsx
+
+### Loading page
+
+> /app/loading.tsx
