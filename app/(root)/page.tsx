@@ -1,9 +1,16 @@
-import { Button } from "@/components/ui/button";
-
-// const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+import ProductList from "@/components/shared/product/product-list";
+import sampleData from "@/db/sample-data";
 
 const HomePage = () => {
-  return <p>HomePage</p>;
+  return (
+    <>
+      <ProductList
+        limit={4}
+        data={sampleData.products}
+        title="Newest arrivals"
+      />
+    </>
+  );
 };
 
 export default HomePage;
