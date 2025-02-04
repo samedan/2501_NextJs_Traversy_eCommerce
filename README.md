@@ -85,3 +85,17 @@
 # Server function
 
 > /lib/actions/product.actions.ts -> getLatestProducts()
+
+### ZOD Validator & Type Inference
+
+> https://zod.dev/ -> npm i zod
+
+# Validator
+
+> /lib/validators.ts
+
+> /types/index.js
+
+# Verify TypeScript for Product
+
+> /components/product/product-card.tsx -> const ProductCard = ({ product }: { product: Product }) => {}
