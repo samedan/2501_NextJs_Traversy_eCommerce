@@ -117,3 +117,9 @@
 # New connection for Prisma websockets
 
 > /db/prisma.ts -> product.actions.ts
+
+### Single Product Page
+
+> /product.actions.ts -> xport async function getProductBySlug(slug: string)
+
+> /app/(root)/product/[slug]/page.tsx
