@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Bold } from "lucide-react";
+// import { Bold } from "lucide-react";
 import ProductPrice from "./product-price";
 import { Product } from "@/types";
 
