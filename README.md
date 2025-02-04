@@ -64,7 +64,7 @@
 
 > package.json -> scripts : {"postinstall": "prisma generate"}
 
-# Run loccnpm prisma generateally
+# Run loccam
 
 > npx prisma generate
 
@@ -75,3 +75,13 @@
 # Prisma STUDIO
 
 > npx prisma studio
+
+### Seed / Write to DBB
+
+> npx tsx ./db/seed
+
+### Read from DBB
+
+# Server function
+
+> /lib/actions/product.actions.ts -> getLatestProducts()
