@@ -99,3 +99,21 @@
 # Verify TypeScript for Product
 
 > /components/product/product-card.tsx -> const ProductCard = ({ product }: { product: Product }) => {}
+
+### NEON Serverless
+
+> https://neon.tech/docs/serverless/serverless-driver#use-the-driver-over-websockets
+
+> npm i @neondatabase/serverless @prisma/adapter-neon ws --legacy-peer-deps
+
+> npm i -D @types/ws bufferutil --legacy-peer-deps
+
+> /prisma/schema.prisma -> previewFeatures = ["driverAdapters"]
+
+# regenerate local condiguration
+
+> npx prisma generate
+
+# New connection for Prisma websockets
+
+> /db/prisma.ts -> product.actions.ts
