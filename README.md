@@ -1,6 +1,14 @@
-### Source
+### Source udemy
 
-> https://www.udemy.com/course/nextjs-ecommerce-course/learn/lecture/47557369#overview
+> https://www.udemy.com/course/nextjs-ecommerce-course/learn/lecture/47557493#questions/22803589
+
+### Git Source
+
+> https://github.com/bradtraversy/prostore/
+
+### This Git
+
+> https://github.com/samedan/2501_NextJs_Traversy_eCommerce
 
 ### ShadCN UI
 
@@ -41,3 +49,29 @@
 ### Responsive Sheet Menu
 
 > npx shadcn@latest add sheet
+
+### PRISMA
+
+> npm i -D prisma @prisma/client --legacy-peer-deps
+
+> npx prisma init
+
+# Add Product Schema
+
+> /prisma/schema.prisma -> model Product {}
+
+# Add to online DBB
+
+> package.json -> scripts : {"postinstall": "prisma generate"}
+
+# Run loccnpm prisma generateally
+
+> npx prisma generate
+
+# Run migration
+
+> npx prisma migrate dev --name init
+
+# Prisma STUDIO
+
+> npx prisma studio
