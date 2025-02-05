@@ -123,3 +123,19 @@
 > /product.actions.ts -> xport async function getProductBySlug(slug: string)
 
 > /app/(root)/product/[slug]/page.tsx
+
+### Authentication with NEXt AUTH
+
+> https://authjs.dev/getting-started/adapters/prisma?framework=next-js
+
+> /prisma/schema.prisma -> User, Account, Session schema
+
+# Generate Prisma Client
+
+> npx prisma generate
+
+# Migration
+
+> npx prisma migrate dev --name add_user_based_tables
+
+> ![RanMigration](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/01printscreen.jpg)
