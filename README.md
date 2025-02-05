@@ -183,3 +183,9 @@
 > /app/(auth)/sign-in/page.tsx
 
 > /app/(auth)/sign-in/credentials-signin-form.tsx
+
+### CallbackURL before Login
+
+> server -> /app/(auth)/sign-in/page.tsx
+
+> client -> /app/(auth)/sign-in/credentials-signin-form.tsx
