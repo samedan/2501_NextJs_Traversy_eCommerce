@@ -139,3 +139,29 @@
 > npx prisma migrate dev --name add_user_based_tables
 
 > ![RanMigration](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/01printscreen.jpg)
+
+### Auth BCRYPT
+
+> npm i bcrypt-ts-edge --legacy-peer-deps
+
+# Seed users
+
+> /db/sample-data.ts
+
+> /db/seed.ts
+
+> npx tsx ./db/seed
+
+# Prisma STUDIO
+
+> npx prisma studio
+
+### NEXT-AUTH v5 Beta
+
+> npm i next-auth@beta --legacy-peer-deps
+
+> npm i @auth/prisma-adapter --legacy-peer-deps
+
+### Auth entry
+
+> ./auth.ts
