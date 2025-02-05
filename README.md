@@ -158,6 +158,8 @@
 
 ### NEXT-AUTH v5 Beta
 
+> https://authjs.dev/getting-started
+
 > npm i next-auth@beta --legacy-peer-deps
 
 > npm i @auth/prisma-adapter --legacy-peer-deps
@@ -165,3 +167,19 @@
 ### Auth entry
 
 > ./auth.ts
+
+### Auth ROUTES
+
+> /app/api/auth/[...nextauth]/route.ts
+
+### SignIn, signOut
+
+> validators.ts
+
+> route.ts -> localhost/sign-in
+
+> /lib/actions/user.actions.ts -> signInWithCredentials, signOutUser
+
+> /app/(auth)/sign-in/page.tsx
+
+> /app/(auth)/sign-in/credentials-signin-form.tsx
