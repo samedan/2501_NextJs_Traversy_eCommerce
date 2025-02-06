@@ -201,3 +201,9 @@
 > /app/(auth)/sign-up/page.tsx
 
 > /app/(auth)/sign-up/sign-up-form.tsx
+
+### Error formatting for frontend
+
+> /lib/utils.js -> export function formatError()
+
+> /lib/actions/user.actions.ts -> return { success: false, message: formatError(error) };
