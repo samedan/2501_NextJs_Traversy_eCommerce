@@ -189,3 +189,13 @@
 > server -> /app/(auth)/sign-in/page.tsx
 
 > client -> /app/(auth)/sign-in/credentials-signin-form.tsx
+
+### Register
+
+> /lib/validatorsr.ts -> export const signUpFormSchema()
+
+> /lib/actions/user.actions.ts -> export async function signUpUser()
+
+# Pages
+
+> /app/(auth)/sign-up/page.tsx & /app/(auth)/sign-up/sign-up-form.tsx
