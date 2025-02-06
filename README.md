@@ -198,4 +198,6 @@
 
 # Pages
 
-> /app/(auth)/sign-up/page.tsx & /app/(auth)/sign-up/sign-up-form.tsx
+> /app/(auth)/sign-up/page.tsx
+
+> /app/(auth)/sign-up/sign-up-form.tsx
