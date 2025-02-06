@@ -4,7 +4,7 @@ import { getLatestProducts } from "@/lib/actions/product.actions";
 
 const HomePage = async () => {
   const latestProducts = await getLatestProducts();
-  console.log(latestProducts);
+  // console.log(latestProducts);
 
   return (
     <>

@@ -207,3 +207,13 @@
 > /lib/utils.js -> export function formatError()
 
 > /lib/actions/user.actions.ts -> return { success: false, message: formatError(error) };
+
+### Token - add additional data with JWT to the Session Callback
+
+> https://next-auth.js.org/configuration/callbacks
+
+> auth.ts -> async jwt({ token, user, trigger, session }: any)
+
+# Verify role in session
+
+> http://localhost:3000/api/auth/session
