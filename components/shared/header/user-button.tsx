@@ -7,10 +7,10 @@ import {
   DropdownMenu,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UserIcon } from "lucide-react";
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+// import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 
 const UserButton = async () => {
   const session = await auth();
