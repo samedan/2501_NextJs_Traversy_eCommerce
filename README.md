@@ -217,3 +217,19 @@
 # Verify role in session
 
 > http://localhost:3000/api/auth/session
+
+### CART
+
+> validators -> cartItemSchema, insertCartSchema
+
+> /types/index.ts -> type Cart, type CartItem
+
+# cart in DBB
+
+> schema.prisma -> model Cart {}
+
+> npx prisma generate
+
+> npx prisma migrate dev --name add-cart
+
+> npx prisma studio
