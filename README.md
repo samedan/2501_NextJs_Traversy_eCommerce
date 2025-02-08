@@ -233,3 +233,17 @@
 > npx prisma migrate dev --name add-cart
 
 > npx prisma studio
+
+### COOKIES
+
+> auth.ts -> import { cookies } from "next/headers";
+
+> auth.ts -> import { NextResponse } from "next/server";
+
+> ./middleware.ts -> export { auth as middleware } from "@/auth";
+
+# Create Session Cookie
+
+> auth.js -> authorized()
+
+> ![CartCookie](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/02printscreen.jpg)
