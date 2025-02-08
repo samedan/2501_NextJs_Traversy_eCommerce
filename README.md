@@ -242,8 +242,14 @@
 
 > ./middleware.ts -> export { auth as middleware } from "@/auth";
 
-# Create Session Cookie
+# Create Session Cookie MIDDLEWARE
 
 > auth.js -> authorized()
 
+> ./middleware.ts
+
 > ![CartCookie](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/02printscreen.jpg)
+
+### Testing Cart & DBB product
+
+> cart.actions.ts -> addItemToCart(.. testing...)
