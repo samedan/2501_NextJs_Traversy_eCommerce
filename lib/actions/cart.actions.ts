@@ -2,10 +2,33 @@
 
 import { CartItem } from "@/types";
 import { cookies } from "next/headers";
-import { convertToPlainObject, formatError } from "../utils";
+import { convertToPlainObject, formatError, round2 } from "../utils";
 import { auth } from "@/auth";
 import { prisma } from "@/db/prisma";
-import { cartItemSchema } from "../validators";
+import { cartItemSchema, insertCartSchema } from "../validators";
+import { revalidatePath } from "next/cache";
+import { Prisma } from "@prisma/client";
+
+// Calculate cart prices
+const calcPrice = (items: CartItem[]) => {
+  const itemsPrice = round2(
+      // 'reduce' add everything together
+      items.reduce(
+        (accumulator, item) => accumulator + Number(item.price) * item.qty,
+        0 // initial value of accumulator
+      )
+    ),
+    shippingPrice = round2(itemsPrice > 100 ? 0 : 10),
+    taxPrice = round2(0.15 * itemsPrice),
+    totalPrice = round2(itemsPrice + taxPrice + shippingPrice);
+
+  return {
+    itemsPrice: itemsPrice.toFixed(2),
+    shippingPrice: shippingPrice.toFixed(2),
+    taxPrice: taxPrice.toFixed(2),
+    totalPrice: totalPrice.toFixed(2),
+  };
+};
 
 // ADD TO CART
 export async function addItemToCart(data: CartItem) {
@@ -24,18 +47,72 @@ export async function addItemToCart(data: CartItem) {
     const product = await prisma.product.findFirst({
       where: { id: item.productId },
     });
-    // TESTING
-    console.log({
-      "Session Cart Id": sessionCartId,
-      "User ID": userId,
-      "Item requested": item,
-      "Product found in DBB": product,
-    });
+    // Add Price to DBB
+    if (!product) throw new Error("Product not found");
+    if (!cart) {
+      // create new cart
+      const newCart = insertCartSchema.parse({
+        userId: userId,
+        items: [item],
+        sessionCartId: sessionCartId,
+        ...calcPrice([item]),
+      });
+      // console.log(newCart);
+      // Add Cart to database
+      await prisma.cart.create({
+        data: newCart,
+      });
+      // Revalidate product page (clear cache)
+      revalidatePath(`/product/${product.slug}`);
+      return {
+        success: true,
+        message: `${product.name} added to cart`,
+      };
+    } else {
+      // CHeck if Item is in the cart already
+      const existItem = (cart.items as CartItem[]).find(
+        (x) => x.productId === item.productId
+      );
+      if (existItem) {
+        // check stock
+        if (product.stock < existItem.qty + 1) {
+          throw new Error("Not enough stock");
+        }
+        // increase quantity
+        (cart.items as CartItem[]).find(
+          (x) => x.productId === item.productId
+        )!.qty = existItem.qty + 1;
+      } else {
+        // New item in cart
+        // check stock
+        if (product.stock < 1) throw new Error("Not enough stock");
 
-    return {
-      success: true,
-      message: "Item added to cart",
-    };
+        // add item to cart.items
+        cart.items.push(item);
+      }
+      // save to DBB
+      await prisma.cart.update({
+        where: { id: cart.id },
+        data: {
+          items: cart.items as Prisma.CartUpdateitemsInput[],
+          ...calcPrice(cart.items as CartItem[]),
+        },
+      });
+      revalidatePath(`/product/${product.slug}`);
+      return {
+        success: true,
+        message: `${product.name} ${
+          existItem ? " updated in" : " added to"
+        } cart`,
+      };
+    }
+    // TESTING
+    // console.log({
+    //   "Session Cart Id": sessionCartId,
+    //   "User ID": userId,
+    //   "Item requested": item,
+    //   "Product found in DBB": product,
+    // });
   } catch (error) {
     return {
       success: false,
