@@ -253,3 +253,11 @@
 ### Testing Cart & DBB product
 
 > cart.actions.ts -> addItemToCart(.. testing...)
+
+### Add remove from cart
+
+> /lib/actions/cart.actions.ts -> removeItemFromCart()
+
+> /components/shared/product/add-to-cart.tsx
+
+> /app/(root)/product/page.tsx
