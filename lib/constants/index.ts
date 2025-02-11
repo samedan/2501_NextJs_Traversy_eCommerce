@@ -16,10 +16,15 @@ export const signUpDefaultValues = {
   confirmPassword: "",
 };
 
-export const shippingAddressDeafultValues = {
-  fullName: "Dan Valjean",
-  streetAddress: "45 Rue des Valjeans",
-  city: "Eragny",
-  postalCode: "12345",
-  country: "France",
+export const shippingAddressDefaultValues = {
+  fullName: "",
+  streetAddress: "",
+  city: "",
+  postalCode: "",
+  country: "",
+  // fullName: "Dan Valjean",
+  // streetAddress: "45 Rue des Valjeans",
+  // city: "Eragny",
+  // postalCode: "12345",
+  // country: "France",
 };

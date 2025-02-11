@@ -267,3 +267,13 @@
 > validators.js -> export const shippingAddressSchema = z.object({})
 
 > /prisma/types/index.ts -> export type ShippingAddress = z.infer<>
+
+### Address form
+
+> npm i react-hook-form @hookform/resolvers --legacy-pper-deps
+
+### Checkout steps
+
+> /components/shared/checkout-steps.tsx
+
+> ![StepsCheckout](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/03printscreen.jpg)
