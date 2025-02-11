@@ -261,3 +261,9 @@
 > /components/shared/product/add-to-cart.tsx
 
 > /app/(root)/product/page.tsx
+
+### Shipping Address
+
+> validators.js -> export const shippingAddressSchema = z.object({})
+
+> /prisma/types/index.ts -> export type ShippingAddress = z.infer<>
