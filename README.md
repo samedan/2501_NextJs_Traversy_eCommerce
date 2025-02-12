@@ -272,8 +272,14 @@
 
 > npm i react-hook-form @hookform/resolvers --legacy-pper-deps
 
+> https://ui.shadcn.com/docs/components/form
+
 ### Checkout steps
 
 > /components/shared/checkout-steps.tsx
 
 > ![StepsCheckout](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/03printscreen.jpg)
+
+### Choose payment method
+
+> ![paymentMethod](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/04printscreen.jpg)
