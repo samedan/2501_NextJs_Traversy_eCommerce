@@ -283,3 +283,21 @@
 ### Choose payment method
 
 > ![paymentMethod](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/04printscreen.jpg)
+
+### Order & Order Item
+
+> schema.prisma -> model
+
+> npx prisma generate
+
+> validators.ts
+
+> /types/index.ts
+
+# Create Order Action
+
+> /lib/actions/order.actions.ts
+
+# Create Order Form
+
+/app/(root)/place-order/place-order-form.tsx

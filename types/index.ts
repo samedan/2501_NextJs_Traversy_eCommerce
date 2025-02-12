@@ -4,6 +4,8 @@ import {
   insertCartSchema,
   cartItemSchema,
   shippingAddressSchema,
+  insertOrderSchema,
+  insertOrderItemSchema,
 } from "@/lib/validators";
 
 // add additional data from z validator
@@ -18,3 +20,17 @@ export type Cart = z.infer<typeof insertCartSchema>;
 export type CartItem = z.infer<typeof cartItemSchema>;
 
 export type ShippingAddress = z.infer<typeof shippingAddressSchema>;
+
+export type OrderItem = z.infer<typeof insertOrderItemSchema>;
+
+// '&& stuff' comes not form teh form
+export type Order = z.infer<typeof insertOrderSchema> & {
+  id: string;
+  createdAt: Date;
+  isPaid: Boolean;
+  paidAt: Date | null;
+  isDelivered: Boolean;
+  deliveredAt: Date | null;
+  orderitems: OrderItem[];
+  user: { name: string; email: string };
+};
