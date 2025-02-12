@@ -301,3 +301,9 @@
 # Create Order Form
 
 /app/(root)/place-order/place-order-form.tsx
+
+### Display Order details
+
+> /app/(root)/order/[id]/order-details-page.tsx
+
+> ![Oder Details](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/05printscreen.jpg)
