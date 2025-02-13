@@ -362,3 +362,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 ### Pagination (Orders)
 
 > npm i query-string --legacy-peer-deps
+
+### Update profile page
+
+> /app/user/profile/profile-form.tsx
