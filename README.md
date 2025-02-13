@@ -10,6 +10,10 @@
 
 > https://github.com/samedan/2501_NextJs_Traversy_eCommerce
 
+### Protected PATHS
+
+> auth.ts
+
 ### ShadCN UI
 
 > https://ui.shadcn.com/
@@ -354,3 +358,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 # Added Buttons
 
 > app/(root)/order/[id]/order-details-table.tsx
+
+### Pagination (Orders)
+
+> npm i query-string --legacy-peer-deps
