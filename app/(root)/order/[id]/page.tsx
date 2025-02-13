@@ -19,12 +19,14 @@ const OrderDetailsPage = async (props: {
   if (!order) notFound();
 
   return (
+    // 'sb' = SandBox Account Id
     <OrderDetailsTable
       // @ts-ignore: Unreachable code error
       order={{
         ...order,
         shippingAddress: order.shippingAddress as ShippingAddress,
       }}
+      paypalClientId={process.env.PAYPAL_CLIENT_ID || "sb"}
     />
   );
 };

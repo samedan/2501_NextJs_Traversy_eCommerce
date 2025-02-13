@@ -322,4 +322,35 @@
 
 > package.json -> 'scripts' -> npm test
 
+```
+expect(typeof tokenResponse).toBe("string");
+expect(tokenResponse.length).toBeGreaterThan(0);
+```
+
 > ![jest Test](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/06printscreen.jpg)
+
+### Create PayPal Order
+
+> https://developer.paypal.com/docs/api/orders/v2/
+
+> paypal.js -> export const paypal = {createOrder:...}
+
+# Capture payment for order
+
+> paypal.js -> export const paypal = {capturePayment:...}
+
+# Payment result schema
+
+> validators.js & types/index.js -> export const paymentResultSchema =z...
+
+### Backend Logic PayPal
+
+> /lib/actions/order.actions.ts
+
+### FrontEnd Paypal
+
+> npm i @paypal/react-paypal-js --legacy-peer-deps
+
+# Added Buttons
+
+> app/(root)/order/[id]/order-details-table.tsx
