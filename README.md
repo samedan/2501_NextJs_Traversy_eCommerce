@@ -306,4 +306,20 @@
 
 > /app/(root)/order/[id]/order-details-page.tsx
 
-> ![Oder Details](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/05printscreen.jpg)
+> ![Order Details](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/05printscreen.jpg)
+
+### Get PayPal Access token
+
+> https://developer.paypal.com/reference/get-an-access-token/
+
+> /lib/paypal.ts
+
+# Test with JEST
+
+> jest.config.ts
+
+> paypal.test.ts
+
+> package.json -> 'scripts' -> npm test
+
+> ![jest Test](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/06printscreen.jpg)
