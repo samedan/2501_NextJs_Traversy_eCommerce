@@ -390,3 +390,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 ### Delete Dialog
 
 > /components/shared/delete-dialog.tsx
+
+### Admin products
+
+> > ![Admin products](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/08printscreen.jpg)
