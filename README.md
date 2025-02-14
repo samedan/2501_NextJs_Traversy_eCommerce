@@ -370,3 +370,16 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 # Update Curent loaded Token/session
 
 > auth.ts-> callbacks: { jwt()}
+
+### Admin Account
+
+# Create special type for typescript admin 'session?.user?.role'
+
+> /types/next-auth.d.ts
+
+# Get Sales Count
+
+> order.actions.ts -> getOrderSummary()
+
+# Charts
+> npm install recharts --legacy-peer-deps

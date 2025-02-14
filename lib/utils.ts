@@ -62,6 +62,7 @@ const CURRENCY_FORMATTER = new Intl.NumberFormat("en-US", {
   style: "currency",
   minimumFractionDigits: 2,
 });
+const NUMBER_FORMATTER = new Intl.NumberFormat("en-US");
 
 // Format currency using FORMATTER
 export function formatCurrency(amount: number | string | null) {
@@ -72,6 +73,10 @@ export function formatCurrency(amount: number | string | null) {
   } else {
     return "NaN";
   }
+}
+// Format Number
+export function formatNumber(number: number) {
+  return NUMBER_FORMATTER.format(number);
 }
 
 // Shorted the UUID in Order
