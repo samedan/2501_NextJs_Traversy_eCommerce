@@ -366,3 +366,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 ### Update profile page
 
 > /app/user/profile/profile-form.tsx
+
+# Update Curent loaded Token/session
+
+> auth.ts-> callbacks: { jwt()}
