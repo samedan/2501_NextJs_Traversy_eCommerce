@@ -386,3 +386,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 > npm install recharts --legacy-peer-deps
 
 > ![Admin Dashboard](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/07printscreen.jpg)
+
+### Delete Dialog
+
+> /components/shared/delete-dialog.tsx
