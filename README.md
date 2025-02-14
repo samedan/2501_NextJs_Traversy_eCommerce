@@ -382,4 +382,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 > order.actions.ts -> getOrderSummary()
 
 # Charts
+
 > npm install recharts --legacy-peer-deps
+
+> ![Admin Dashboard](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/07printscreen.jpg)
