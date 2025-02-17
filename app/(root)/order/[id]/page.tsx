@@ -6,7 +6,7 @@ import { ShippingAddress } from "@/types";
 import { auth } from "@/auth";
 
 export const metadata: Metadata = {
-  title: "Order details",
+  title: "Order Details",
 };
 
 const OrderDetailsPage = async (props: {
@@ -17,15 +17,17 @@ const OrderDetailsPage = async (props: {
   const { id } = await props.params;
 
   const order = await getOrderById(id);
+  console.log(order);
+
   if (!order) notFound();
 
-  // session in serverpage
   const session = await auth();
 
+  // let client_secret = null;
+  // // at_ts-ignore: Unreachable code error
+
   return (
-    // 'sb' = SandBox Account Id
     <OrderDetailsTable
-      // @ts-ignore: Unreachable code error
       order={{
         ...order,
         shippingAddress: order.shippingAddress as ShippingAddress,
