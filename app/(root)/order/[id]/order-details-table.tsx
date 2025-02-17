@@ -35,7 +35,8 @@ const OrderDetailsTable = ({
   paypalClientId,
   isAdmin,
 }: {
-  order: Order;
+  // order: Order;
+  order: any;
   paypalClientId: string;
   isAdmin: boolean;
 }) => {

@@ -394,3 +394,19 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 ### Admin products
 
 > > ![Admin products](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/08printscreen.jpg)
+
+### UploadThing
+
+> https://docs.uploadthing.com/getting-started/appdir#set-up-a-file-router
+
+> app/api/uploadthing/core.ts
+
+> app/api/uploadthing/route.ts
+
+# BUttons
+
+> /lib/uploadthings.ts
+
+# Server settings
+
+> next.config.js
