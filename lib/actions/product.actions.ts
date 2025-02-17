@@ -26,6 +26,14 @@ export async function getProductBySlug(slug: string) {
   });
 }
 
+// GET Single Product by ID
+export async function getProductById(productId: string) {
+  const data = await prisma.product.findFirst({
+    where: { id: productId },
+  });
+  return convertToPlainObject(data);
+}
+
 // GEt all products
 export async function getAllProducts({
   query,
