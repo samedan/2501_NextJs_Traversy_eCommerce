@@ -426,3 +426,23 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 > /lib/actions/product.actions.ts -> export async function getFeaturedProducts()
 
 > https://www.embla-carousel.com/plugins/autoplay/
+
+> /components/shared/product/product-carousel.tsx
+
+### Search on top
+
+> /components/shared/header/search.tsx
+
+# Filters
+
+> product.actions.ts -> xport async function getAllProducts({})
+
+```
+const data = await prisma.product.findMany({
+    where: {
+      ...queryFilter,
+      ...categoryFilter,
+      ...priceFilter,
+      ...ratingFilter,
+    },})
+```
