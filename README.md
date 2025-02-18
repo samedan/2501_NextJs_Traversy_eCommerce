@@ -422,3 +422,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 ### Carousel
 
 > npm i embla-carousel-autoplay --legacy-peer-deps
+
+> /lib/actions/product.actions.ts -> export async function getFeaturedProducts()
+
+> https://www.embla-carousel.com/plugins/autoplay/
