@@ -393,7 +393,7 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 
 ### Admin products
 
-> > ![Admin products](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/08printscreen.jpg)
+> ![Admin products](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/08printscreen.jpg)
 
 ### UploadThing
 
@@ -410,3 +410,15 @@ expect(tokenResponse.length).toBeGreaterThan(0);
 # Server settings
 
 > next.config.js
+
+### Categories Menu
+
+> /components/shared/header/category-drawer.tsx
+
+> import { getAllCategories } from "@/lib/actions/product.actions";
+
+> ![Categories](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/09printscreen.jpg)
+
+### Carousel
+
+> npm i embla-carousel-autoplay --legacy-peer-deps
