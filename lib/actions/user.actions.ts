@@ -5,6 +5,7 @@ import {
   signInFormSchema,
   signUpFormSchema,
   paymentMethodSchema,
+  updateUserSchema,
 } from "../validators";
 import { auth, signIn, signOut } from "@/auth";
 import { isRedirectError } from "next/dist/client/components/redirect";
@@ -13,6 +14,8 @@ import { prisma } from "@/db/prisma";
 import { formatError } from "../utils";
 import { ShippingAddress } from "@/types";
 import { z } from "zod";
+import { PAGE_SIZE } from "../constants";
+import { revalidatePath } from "next/cache";
 
 // Sign in user with credentials
 // POST @ /api/auth/signin
@@ -147,6 +150,59 @@ export async function updateProfile(user: { name: string; email: string }) {
       data: { name: user.name },
     });
     return { success: true, message: "User updated successfully" };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
+  }
+}
+
+// Admin: Get All Users
+export async function getAllUsers({
+  limit = PAGE_SIZE,
+  page,
+}: {
+  limit?: number;
+  page: number;
+}) {
+  const data = await prisma.user.findMany({
+    orderBy: { createdAt: "desc" },
+    take: limit,
+    skip: (page - 1) * limit,
+  });
+  const dataCount = await prisma.user.count();
+  return {
+    data,
+    totalPages: Math.ceil(dataCount / limit),
+  };
+}
+
+// Admin: delete a User
+export async function deleteUser(id: string) {
+  try {
+    await prisma.user.delete({
+      where: { id: id },
+    });
+    revalidatePath("/admin/users");
+    return { success: true, message: "User deleted successfully" };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
+  }
+}
+
+// Admin: Update a User
+export async function updateUser(user: z.infer<typeof updateUserSchema>) {
+  try {
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        name: user.name,
+        role: user.role,
+      },
+    });
+    revalidatePath("/admin/users");
+    return {
+      success: true,
+      message: "User updated successfully",
+    };
   } catch (error) {
     return { success: false, message: formatError(error) };
   }
