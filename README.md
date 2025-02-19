@@ -446,3 +446,7 @@ const data = await prisma.product.findMany({
       ...ratingFilter,
     },})
 ```
+
+# Build URL based on searchParams
+
+> /app/(root)/search/page.tsx
