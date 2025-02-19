@@ -1,20 +1,21 @@
-'use client';
-import { Button } from '@/components/ui/button';
+"use client";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
-import { updateProfile } from '@/lib/actions/user.actions';
-import { updateProfileSchema } from '@/lib/validators';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useSession } from 'next-auth/react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import { updateProfile } from "@/lib/actions/user.actions";
+import { updateProfileSchema } from "@/lib/validators";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useSession } from "next-auth/react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const ProfileForm = () => {
   const { data: session, update } = useSession();
@@ -22,23 +23,17 @@ const ProfileForm = () => {
   const form = useForm<z.infer<typeof updateProfileSchema>>({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: {
-      name: session?.user?.name ?? '',
-      email: session?.user?.email ?? '',
+      name: session?.user?.name ?? "", // if on the left is null use ''
+      email: session?.user?.email ?? "",
     },
   });
 
   const { toast } = useToast();
-
   const onSubmit = async (values: z.infer<typeof updateProfileSchema>) => {
     const res = await updateProfile(values);
-
     if (!res.success) {
-      return toast({
-        variant: 'destructive',
-        description: res.message,
-      });
+      return toast({ variant: "destructive", description: res.message });
     }
-
     const newSession = {
       ...session,
       user: {
@@ -46,9 +41,7 @@ const ProfileForm = () => {
         name: values.name,
       },
     };
-
     await update(newSession);
-
     toast({
       description: res.message,
     });
@@ -57,51 +50,60 @@ const ProfileForm = () => {
   return (
     <Form {...form}>
       <form
-        className='flex flex-col gap-5'
+        className="flex flex-col gap-2"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <div className='flex flex-col gap-5'>
+        <div className="flex flex-col gap-2 space-y-1">
+          {/* Email */}
           <FormField
             control={form.control}
-            name='email'
+            name="email"
             render={({ field }) => (
-              <FormItem className='w-full'>
-                <FormControl>
-                  <Input
-                    disabled
-                    placeholder='Email'
-                    className='input-field'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+              <>
+                <FormLabel className="mb-0">Email</FormLabel>
+                <FormItem className="w-full mt-0">
+                  <FormControl>
+                    <Input
+                      disabled
+                      placeholder="Email"
+                      className="input-field"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              </>
             )}
           />
+          {/* name */}
+
           <FormField
             control={form.control}
-            name='name'
+            name="name"
             render={({ field }) => (
-              <FormItem className='w-full'>
-                <FormControl>
-                  <Input
-                    placeholder='Name'
-                    className='input-field'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+              <>
+                <FormLabel className="mb-0">Name</FormLabel>
+                <FormItem className="w-full">
+                  <FormControl>
+                    <Input
+                      placeholder="Name"
+                      className="input-field"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              </>
             )}
           />
         </div>
         <Button
-          type='submit'
-          size='lg'
-          className='button col-span-2 w-full'
+          type="submit"
+          size="lg"
+          className="button col-span-2 w-full"
           disabled={form.formState.isSubmitting}
         >
-          {form.formState.isSubmitting ? 'Submitting...' : 'Update Profile'}
+          {form.formState.isSubmitting ? "Submitting..." : "Update profile"}
         </Button>
       </form>
     </Form>

@@ -1,28 +1,32 @@
-import ProductList from '@/components/shared/product/product-list';
+import ProductCarousel from "@/components/shared/product/product-carousel";
+import ProductList from "@/components/shared/product/product-list";
+import ViewAllProductsButton from "@/components/view-all-product-button";
+// import sampleData from "@/db/sample-data";
 import {
   getLatestProducts,
   getFeaturedProducts,
-} from '@/lib/actions/product.actions';
-import ProductCarousel from '@/components/shared/product/product-carousel';
-import ViewAllProductsButton from '@/components/view-all-products-button';
-import IconBoxes from '@/components/icon-boxes';
-import DealCountdown from '@/components/deal-countdown';
+} from "@/lib/actions/product.actions";
 
-const Homepage = async () => {
+const HomePage = async () => {
   const latestProducts = await getLatestProducts();
   const featuredProducts = await getFeaturedProducts();
+
+  // console.log(latestProducts);
 
   return (
     <>
       {featuredProducts.length > 0 && (
         <ProductCarousel data={featuredProducts} />
       )}
-      <ProductList data={latestProducts} title='Newest Arrivals' limit={4} />
+      <ProductList
+        limit={4}
+        // data={sampleData.products}
+        data={latestProducts}
+        title="Newest arrivals"
+      />
       <ViewAllProductsButton />
-      <DealCountdown />
-      <IconBoxes />
     </>
   );
 };
 
-export default Homepage;
+export default HomePage;

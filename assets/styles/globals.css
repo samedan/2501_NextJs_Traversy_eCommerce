@@ -102,11 +102,10 @@
   }
 }
 
-/* Uploadthing button text override */
+/* Uploadthing button text */
 html.dark .upload-field .text-white {
   color: #ffffff !important;
 }
-
 .upload-field .text-white {
-  color: #000 !important;
+  color: #000000 !important;
 }
