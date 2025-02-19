@@ -147,7 +147,7 @@ export async function createPayPalOrder(orderId: string) {
 
 // ApprouvePayPal Order & Update order to 'PAID' (isPaid in the DBB)
 // orderId (client), orderID (paypal sent)
-export async function approuvePayPalOrder(
+export async function approvePayPalOrder(
   orderId: string,
   data: { orderID: string }
 ) {

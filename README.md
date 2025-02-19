@@ -464,3 +464,11 @@ const data = await prisma.product.findMany({
 # Schema
 
 > /lib/validators.ts
+
+### STRIPE
+
+> npm i stripe @stripe/stripe-js @stripe/react-stripe-js --legacy-peer-deps
+
+# 1. Create payment intent
+
+> app/(root)/order/[id]/page.tsx
