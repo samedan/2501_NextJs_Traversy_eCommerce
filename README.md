@@ -1,474 +1,174 @@
-### Source udemy
+# Prostore
 
-> https://www.udemy.com/course/nextjs-ecommerce-course/learn/lecture/47557493#questions/22803589
+A full featured Ecommerce website built with Next.js, TypeScript, PostgreSQL and Prisma.
 
-### Git Source
+<img src="/public/images/screen.png" alt="Next.js Ecommerce" />
 
-> https://github.com/bradtraversy/prostore/
+This project is from my **Next.js Ecommerce course**
 
-### This Git
+- Traversy Media: https://www.traversymedia.com/nextjs-ecommerce
+- Udemy: https://www.udemy.com/course/nextjs-ecommerce-course
 
-> https://github.com/samedan/2501_NextJs_Traversy_eCommerce
+## Features
 
-### Protected PATHS
+- Next Auth authentication
+- Admin area with stats & chart using Recharts
+- Order, product and user management
+- User area with profile and orders
+- Stripe API integration
+- PayPal integration
+- Cash on delivery option
+- Interactive checkout process
+- Featured products with banners
+- Multiple images using Uploadthing
+- Ratings & reviews system
+- Search form (customer & admin)
+- Sorting, filtering & pagination
+- Dark/Light mode
+- Much more
 
-> auth.ts
+## Usage
 
-### ShadCN UI
+### Install Dependencies
 
-> https://ui.shadcn.com/
-
-> npx shadcn@latest add button
-
-### Multiple Layouts
-
-# Group
-
-> /app/(root)/layout.tsx
-
-### .env. Constants
-
-> .env
-
-> app/lib/constants
-
-### Lucide React
-
-> npm i lucide-react
-
-### Theme color toggle - NEXT THEMES
-
-> npm i next-themes
-
-> npx shadcn@latest add dropdown-menu
-
-# Local File 'use client'
-
-> /app/components/shared/header/mode-toggle.tsx
-
-### Loading page
-
-> /app/loading.tsx
-
-### Responsive Sheet Menu
-
-> npx shadcn@latest add sheet
-
-### PRISMA
-
-> npm i -D prisma @prisma/client --legacy-peer-deps
-
-> npx prisma init
-
-# Add Product Schema
-
-> /prisma/schema.prisma -> model Product {}
-
-# Add to online DBB
-
-> package.json -> scripts : {"postinstall": "prisma generate"}
-
-# Run loccam
-
-> npx prisma generate
-
-# Run migration
-
-> npx prisma migrate dev --name init
-
-# Prisma STUDIO
-
-> npx prisma studio
-
-### Seed / Write to DBB
-
-> npx tsx ./db/seed
-
-### Read from DBB
-
-# Server function
-
-> /lib/actions/product.actions.ts -> getLatestProducts()
-
-### ZOD Validator & Type Inference
-
-> https://zod.dev/ -> npm i zod
-
-# Validator
-
-> /lib/validators.ts
-
-> /types/index.js
-
-# Verify TypeScript for Product
-
-> /components/product/product-card.tsx -> const ProductCard = ({ product }: { product: Product }) => {}
-
-### NEON Serverless
-
-> https://neon.tech/docs/serverless/serverless-driver#use-the-driver-over-websockets
-
-> npm i @neondatabase/serverless @prisma/adapter-neon ws --legacy-peer-deps
-
-> npm i -D @types/ws bufferutil --legacy-peer-deps
-
-> /prisma/schema.prisma -> previewFeatures = ["driverAdapters"]
-
-# regenerate local condiguration
-
-> npx prisma generate
-
-# New connection for Prisma websockets
-
-> /db/prisma.ts -> product.actions.ts
-
-### Single Product Page
-
-> /product.actions.ts -> xport async function getProductBySlug(slug: string)
-
-> /app/(root)/product/[slug]/page.tsx
-
-### Authentication with NEXt AUTH
-
-> https://authjs.dev/getting-started/adapters/prisma?framework=next-js
-
-> /prisma/schema.prisma -> User, Account, Session schema
-
-# Generate Prisma Client
-
-> npx prisma generate
-
-# Migration
-
-> npx prisma migrate dev --name add_user_based_tables
-
-> ![RanMigration](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/01printscreen.jpg)
-
-### Auth BCRYPT
-
-> npm i bcrypt-ts-edge --legacy-peer-deps
-
-# Seed users
-
-> /db/sample-data.ts
-
-> /db/seed.ts
-
-> npx tsx ./db/seed
-
-# Prisma STUDIO
-
-> npx prisma studio
-
-### NEXT-AUTH v5 Beta
-
-> https://authjs.dev/getting-started
-
-> npm i next-auth@beta --legacy-peer-deps
-
-> npm i @auth/prisma-adapter --legacy-peer-deps
-
-### Auth entry
-
-> ./auth.ts
-
-### Auth ROUTES
-
-> /app/api/auth/[...nextauth]/route.ts
-
-### SignIn, signOut
-
-> validators.ts
-
-> route.ts -> localhost/sign-in
-
-> /lib/actions/user.actions.ts -> signInWithCredentials, signOutUser
-
-> /app/(auth)/sign-in/page.tsx
-
-> /app/(auth)/sign-in/credentials-signin-form.tsx
-
-### CallbackURL before Login
-
-> server -> /app/(auth)/sign-in/page.tsx
-
-> client -> /app/(auth)/sign-in/credentials-signin-form.tsx
-
-### Register
-
-> /lib/validatorsr.ts -> export const signUpFormSchema()
-
-> /lib/actions/user.actions.ts -> export async function signUpUser()
-
-# Pages
-
-> /app/(auth)/sign-up/page.tsx
-
-> /app/(auth)/sign-up/sign-up-form.tsx
-
-### Error formatting for frontend
-
-> /lib/utils.js -> export function formatError()
-
-> /lib/actions/user.actions.ts -> return { success: false, message: formatError(error) };
-
-### Token - add additional data with JWT to the Session Callback
-
-> https://next-auth.js.org/configuration/callbacks
-
-> auth.ts -> async jwt({ token, user, trigger, session }: any)
-
-# Verify role in session
-
-> http://localhost:3000/api/auth/session
-
-### CART
-
-> validators -> cartItemSchema, insertCartSchema
-
-> /types/index.ts -> type Cart, type CartItem
-
-# cart in DBB
-
-> schema.prisma -> model Cart {}
-
-> npx prisma generate
-
-> npx prisma migrate dev --name add-cart
-
-> npx prisma studio
-
-### COOKIES
-
-> auth.ts -> import { cookies } from "next/headers";
-
-> auth.ts -> import { NextResponse } from "next/server";
-
-> ./middleware.ts -> export { auth as middleware } from "@/auth";
-
-# Create Session Cookie MIDDLEWARE
-
-> auth.js -> authorized()
-
-> ./middleware.ts
-
-> ![CartCookie](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/02printscreen.jpg)
-
-### Testing Cart & DBB product
-
-> cart.actions.ts -> addItemToCart(.. testing...)
-
-### Add remove from cart
-
-> /lib/actions/cart.actions.ts -> removeItemFromCart()
-
-> /components/shared/product/add-to-cart.tsx
-
-> /app/(root)/product/page.tsx
-
-### Shipping Address
-
-> validators.js -> export const shippingAddressSchema = z.object({})
-
-> /prisma/types/index.ts -> export type ShippingAddress = z.infer<>
-
-### Address form
-
-> npm i react-hook-form @hookform/resolvers --legacy-pper-deps
-
-> https://ui.shadcn.com/docs/components/form
-
-### Checkout steps
-
-> /components/shared/checkout-steps.tsx
-
-> ![StepsCheckout](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/03printscreen.jpg)
-
-### Choose payment method
-
-> ![paymentMethod](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/04printscreen.jpg)
-
-### Order & Order Item
-
-> schema.prisma -> model
-
-> npx prisma generate
-
-> validators.ts
-
-> /types/index.ts
-
-# Create Order Action
-
-> /lib/actions/order.actions.ts
-
-# Create Order Form
-
-/app/(root)/place-order/place-order-form.tsx
-
-### Display Order details
-
-> /app/(root)/order/[id]/order-details-page.tsx
-
-> ![Order Details](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/05printscreen.jpg)
-
-### Get PayPal Access token
-
-> https://developer.paypal.com/reference/get-an-access-token/
-
-> /lib/paypal.ts
-
-# Test with JEST
-
-> jest.config.ts
-
-> paypal.test.ts
-
-> package.json -> 'scripts' -> npm test
-
-```
-expect(typeof tokenResponse).toBe("string");
-expect(tokenResponse.length).toBeGreaterThan(0);
+```bash
+npm install
 ```
 
-> ![jest Test](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/06printscreen.jpg)
+Note: Some dependencies may have not yet been upadated to support React 19. If you get any errors about depencency compatability, run the following:
 
-### Create PayPal Order
-
-> https://developer.paypal.com/docs/api/orders/v2/
-
-> paypal.js -> export const paypal = {createOrder:...}
-
-# Capture payment for order
-
-> paypal.js -> export const paypal = {capturePayment:...}
-
-# Payment result schema
-
-> validators.js & types/index.js -> export const paymentResultSchema =z...
-
-### Backend Logic PayPal
-
-> /lib/actions/order.actions.ts
-
-### FrontEnd Paypal
-
-> npm i @paypal/react-paypal-js --legacy-peer-deps
-
-# Added Buttons
-
-> app/(root)/order/[id]/order-details-table.tsx
-
-### Pagination (Orders)
-
-> npm i query-string --legacy-peer-deps
-
-### Update profile page
-
-> /app/user/profile/profile-form.tsx
-
-# Update Curent loaded Token/session
-
-> auth.ts-> callbacks: { jwt()}
-
-### Admin Account
-
-# Create special type for typescript admin 'session?.user?.role'
-
-> /types/next-auth.d.ts
-
-# Get Sales Count
-
-> order.actions.ts -> getOrderSummary()
-
-# Charts
-
-> npm install recharts --legacy-peer-deps
-
-> ![Admin Dashboard](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/07printscreen.jpg)
-
-### Delete Dialog
-
-> /components/shared/delete-dialog.tsx
-
-### Admin products
-
-> ![Admin products](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/08printscreen.jpg)
-
-### UploadThing
-
-> https://docs.uploadthing.com/getting-started/appdir#set-up-a-file-router
-
-> app/api/uploadthing/core.ts
-
-> app/api/uploadthing/route.ts
-
-# BUttons
-
-> /lib/uploadthings.ts
-
-# Server settings
-
-> next.config.js
-
-### Categories Menu
-
-> /components/shared/header/category-drawer.tsx
-
-> import { getAllCategories } from "@/lib/actions/product.actions";
-
-> ![Categories](https://github.com/samedan/2501_NextJs_Traversy_eCommerce/blob/main/_printscreens/09printscreen.jpg)
-
-### Carousel
-
-> npm i embla-carousel-autoplay --legacy-peer-deps
-
-> /lib/actions/product.actions.ts -> export async function getFeaturedProducts()
-
-> https://www.embla-carousel.com/plugins/autoplay/
-
-> /components/shared/product/product-carousel.tsx
-
-### Search on top
-
-> /components/shared/header/search.tsx
-
-# Filters
-
-> product.actions.ts -> xport async function getAllProducts({})
-
-```
-const data = await prisma.product.findMany({
-    where: {
-      ...queryFilter,
-      ...categoryFilter,
-      ...priceFilter,
-      ...ratingFilter,
-    },})
+```bash
+npm install --legacy-peer-deps
 ```
 
-# Build URL based on searchParams
+### Environment Variables
 
-> /app/(root)/search/page.tsx
+Rename the `.example-env` file to `.env` and add the following
 
-### REVIEWS
+#### PostgreSQL Database URL
 
-> schema.prisma
+Sign up for a free PostgreSQL database through Vercel. Log into Vercel and click on "Storage" and create a new Postgres database. Then add the URL.
 
-> npx prisma generate
+**Example:**
 
-> npx prisma migrate dev --name add_review
+```
+DATABASE_URL="postgresql://username:password@host:port/dbname"
+```
 
-> npx prisma studio
+#### Next Auth Secret
 
-# Schema
+Generate a secret with the following command and add it to your `.env`:
 
-> /lib/validators.ts
+```bash
+openssl rand -base64 32
+```
 
-### STRIPE
+**Example:**
 
-> npm i stripe @stripe/stripe-js @stripe/react-stripe-js --legacy-peer-deps
+```
+NEXTAUTH_SECRET="xmVpackzg9sdkEPzJsdGse3dskUY+4ni2quxvoK6Go="
+```
 
-# 1. Create payment intent
+#### PayPal Client ID and Secret
 
-> app/(root)/order/[id]/page.tsx
+Create a PayPal developer account and create a new app to get the client ID and secret.
+
+**Example:**
+
+```
+PAYPAL_CLIENT_ID="AeFIdonfA_dW_ncys8G4LiECWBI9442IT_kRV15crlmMApC6zpb5Nsd7zlxj7UWJ5FRZtx"
+PAYPAL_APP_SECRET="REdG53DEeX_ShoPawzM4vQHCYy0a554G3xXmzSxFCDcSofBBTq9VRqjs6xsNVBcbjqz--HiiGoiV"
+```
+
+#### Stripe Publishable and Secret Key
+
+Create a Stripe account and get the publishable and secret key.
+
+**Example:**
+
+```
+STRIPE_SECRET_KEY="sk_test_51QIr0IG87GyTererxmXxEeqV6wuzbmC0TpkRzabxqy3P4BpzpzDqnQaC1lZhmYg6IfNarnvpnbjjw5dsBq4afd0FXkeDriR"
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_test_51QIr0Ids7GyT6H7X6R5GoEA68lYDcbcC94VU0U02SMkrrrYZT2CgSMZ1h22udb5Rg1AuonXyjmAQZESLLj100W3VGVwze"
+```
+
+#### Uploadthing Settings
+
+Sign up for an account at https://uploadthing.com/ and get the token, secret and app ID.
+
+**Example:**
+
+```
+UPLOADTHING_TOKEN='tyJhcGlLZXkiOiJza19saXZlXzQ4YTE2ZjhiMDE5YmFiOgrgOWQ4MmYxMGQxZGU2NTM3YzlkZGI3YjNiZDk3MmRhNGZmNGMwMmJlOWI2Y2Q0N2UiLCJhcHBJZCI6InRyejZ2NHczNzUiLCJyZWdpb25zIjpbInNlYTEiXX0='
+UPLOADTHIUG_SECRET='gg'
+UPLOADTHING_APPID='trz6vd475'
+```
+
+#### Resend API Key
+
+Sign up for an account at https://resend.io/ and get the API key.
+
+**Example:**
+
+```
+RESEND_API_KEY="re_ZnhUfrjR_QD2cDqdee3iYCrkfvPYFCYiXm"
+```
+
+### Run
+
+```bash
+
+# Run in development mode
+npm run dev
+
+# Build for production
+npm run build
+
+# Run in production mode
+npm start
+
+# Export static site
+npm run export
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Prisma Studio
+
+To open Prisma Studio, run the following command:
+
+```bash
+npx prisma studio
+```
+
+## Seed Database
+
+To seed the database with sample data, run the following command:
+
+```bash
+npx tsx ./db/seed
+```
+
+## Demo
+
+I am not sure how long I will have this demo up but you can view it here:
+
+https://prostore-one.vercel.app/
+
+## Note On Vercel Deployment For Hobby Plan
+
+In order to fit within the limitations of the Vercel hobby plan, we removed the **bcrypt-ts-edge** package and added custom encryption. Now the full project can be deployed to the Hobby plan.
+
+## License
+
+MIT License
+
+Copyright (c) [2025] [Traversy Media]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall
