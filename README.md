@@ -450,3 +450,17 @@ const data = await prisma.product.findMany({
 # Build URL based on searchParams
 
 > /app/(root)/search/page.tsx
+
+### REVIEWS
+
+> schema.prisma
+
+> npx prisma generate
+
+> npx prisma migrate dev --name add_review
+
+> npx prisma studio
+
+# Schema
+
+> /lib/validators.ts
